@@ -123,11 +123,11 @@
     if (fighters[0].health <1 && fighters[1].health <1)                 //See if both fighters' health is <1 - both lose
     {
         result = "GAME OVER! You are both dead!";
-    } else if(fighters[0]<1){                           //See if fighter ones' health is <1 - fighter two wins
-        result ="GAME OVER! " +fighters[1]+" WINS!!!"
-    } else if(fighters[1]<1)                            //See if fighter twos' health is <1 - fighter one wins
+    } else if(fighters[0].health<1){                           //See if fighter ones' health is <1 - fighter two wins
+        result ="GAME OVER! " +fighters[1].name+" WINS!!!"
+    } else if(fighters[1].health<1)                            //See if fighter twos' health is <1 - fighter one wins
     {
-        result ="GAME OVER! " +fighters[0]+" WINS!!!"
+        result ="GAME OVER! " +fighters[0].name+" WINS!!!"
     };
     return result;
     };
