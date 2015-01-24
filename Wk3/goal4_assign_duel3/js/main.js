@@ -81,18 +81,25 @@
             //var f2 = Math.floor(Math.random()*(fighter2[1]-minDamage2)+minDamage2);
 
             //inflict the damage
-            fighter1[2]-=f1;  //Changed so array is input
-            fighter2[2]-=f2;  //Changed so array is input
+            //fighter1[2]-=f1;  //Changed so array is input
+            //fighter2[2]-=f2;  //Changed so array is input
 
-            console.log(fighter1[2]+" "+fighter2[2]);
+            //console.log(fighter1[2]+" "+fighter2[2]);
 
         //check for a winner
         var result = winnerCheck();
         console.log(result);
-        if (result==="no winner")  //If there is no winner, function will move on to next progressive round
-        {
+
+            round_txt.innerHTML = "ROUND #" + round + " Results:";
             round++;
-            alert(fighter1[0]+":"+fighter1[2]+"  **ROUND "+round+" OVER"+"** "+fighter2[0]+":"+fighter2[2]);
+
+            if (result==="no winner")  //If there is no winner, function will move on to next progressive round
+        {
+                fighter1_txt.innerHTML = fighters[0].name + ":  " + fighters[0].health;
+                fighter2_txt.innerHTML = fighters[1].name + ":  " + fighters[1].health;
+            
+            //round++;
+            //alert(fighter1[0]+":"+fighter1[2]+"  **ROUND "+round+" OVER"+"** "+fighter2[0]+":"+fighter2[2]);
 
         } else{
             alert(result);
