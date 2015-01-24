@@ -1,7 +1,7 @@
 /**
  Daniel Koval
- 1/14/15
- DEBUG Search V2
+ 1/22/15
+ DEBUG Search V3
  */
 // Create privatized scope using a self-executing function
 (function(){
@@ -41,7 +41,7 @@
 	var search = function(query){		//Corrected error - added {
 		//Separate the search
 		// split the user's search query string into an array
-		var queryArray = query.join(" ");
+		var queryArray = query.split(" ");	//Corrected error - changed .join to .split
 		//Store the results of the search
 		// array to store matched results from database.js
 		var results = [];
@@ -52,12 +52,12 @@
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
 			var dbTitleEnd = db[i].indexOf('|');
-			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);
+			var dbitem = db[i].toLowerCase().substring(0, dbTitleEnd);		//Corrected error - camel case on toLowerCase
 
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
 			for (var ii = 0, jj = queryArray.length; ii < jj; ii++) {
-				var qitem = queryArray[ii].tolowercase();
+				var qitem = queryArray[ii].toLowerCase();	//Corrected error - camel case on toLowerCase
 
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
@@ -70,9 +70,12 @@
 		};		//Corrected error - added } to close function
 		//Sort the results
 		results.sort();
+
+		console.log("Am I getting to line 74?");
+
 		//Display if any matches were found - if so, display them
 		// Check that matches were found, and run output functions
-		if(results.length = 0){
+		if(results.length === 0){		//Corrected error - changed single = to triple =
 			noMatch();
 		}else{
 			showMatches(results);
@@ -96,14 +99,16 @@
 			title, 
 			url
 		;
-		
+
+		console.log("What is the value of results.length? " + results.length);
+
 		// loop through all the results search() function
 		for(var i=0, j=results.length; i<j; i++){
 		
 			// title of video ends with pipe
 			// pull the title's string using index numbers
 			titleEnd = results[i].indexOf('|');
-			title = results[i].subString(0, titleEnd);
+			title = results[i].substring(0, titleEnd);	//Corrected error to eliminate camel case in .substring
 			
 			// pull the video url after the title
 			url = results[i].substring(results[i].indexOf('|')+1, results[i].length);
