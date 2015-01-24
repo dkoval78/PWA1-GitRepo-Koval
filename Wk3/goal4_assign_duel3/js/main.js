@@ -35,10 +35,6 @@
 
             }];
 
-    //What two superheros are going to battle?
-    //Player One and Player Two names
-    var fighter1 = ["Thor",30,100];  //Array for fighter number one
-    var fighter2 = ["Ironman",30,100];  //Array for fighter number two
 
     //Old code
     //What damage will they be assigned?
@@ -54,6 +50,11 @@
     //Initiate the round
     var round=1;
 
+    //Initialize DOM innerHTML
+    round.txt.innerHTML = "Click FIGHT BUTTON to Start!";
+    fighter1_txt.innerHTML = fighters[0].name + ":  " + fighters[0].health;
+    fighter2_txt.innerHTML = fighters[1].name + ":  " + fighters[1].health;
+    
     function fight(){
         alert(fighter1[0]+":"+fighter1[2]+"  **START!!**  "+fighter2[0]+":"+ //Input array for both fighters
         fighter2[2]);
