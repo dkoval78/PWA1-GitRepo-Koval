@@ -15,6 +15,26 @@
     var round_txt = document.querySelector("h5");
     var button = document.getElementById("fight_btn");
 
+    console.log();
+
+    //Set up click event
+    button.addEventListener("click", fight, false);
+
+    //Array
+    var fighters = [
+        {
+
+            name:"Thor",
+            damage:30,
+            health:100
+        },
+        {
+            name:"Ironman",
+            damage:30,
+            health:100
+
+            }];
+
     //What two superheros are going to battle?
     //Player One and Player Two names
     var fighter1 = ["Thor",30,100];  //Array for fighter number one
