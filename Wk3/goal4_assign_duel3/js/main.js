@@ -97,13 +97,21 @@
         {
                 fighter1_txt.innerHTML = fighters[0].name + ":  " + fighters[0].health;
                 fighter2_txt.innerHTML = fighters[1].name + ":  " + fighters[1].health;
-            
+
             //round++;
             //alert(fighter1[0]+":"+fighter1[2]+"  **ROUND "+round+" OVER"+"** "+fighter2[0]+":"+fighter2[2]);
 
         } else{
-            alert(result);
-            break;
+            fighter1_txt.innerHTML = result;
+            fighter2_txt.innerHTML = "";
+
+            //Disable button
+            button.removeEventListener("click", fight, false);
+            //alert(result);
+            //break;
+
+            //button.onclick
+            document.querySelector('buttonblue').innterHTML = 'DONE!';
         };
 
         };
@@ -112,14 +120,14 @@
 
     function winnerCheck(){
     var result="no winner";
-    if (fighter1[2]<1 && fighter2[2]<1)                 //See if both fighters' health is <1 - both lose
+    if (fighters[0].health <1 && fighters[1].health <1)                 //See if both fighters' health is <1 - both lose
     {
         result = "GAME OVER! You are both dead!";
-    } else if(fighter1[2]<1){                           //See if fighter ones' health is <1 - fighter two wins
-        result ="GAME OVER! " +fighter2[0]+" WINS!!!"
-    } else if(fighter2[2]<1)                            //See if fighter twos' health is <1 - fighter one wins
+    } else if(fighters[0]<1){                           //See if fighter ones' health is <1 - fighter two wins
+        result ="GAME OVER! " +fighters[1]+" WINS!!!"
+    } else if(fighters[1]<1)                            //See if fighter twos' health is <1 - fighter one wins
     {
-        result ="GAME OVER! " +fighter1[0]+" WINS!!!"
+        result ="GAME OVER! " +fighters[0]+" WINS!!!"
     };
     return result;
     };
